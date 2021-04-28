@@ -40,12 +40,3 @@ exports.handler = (event, handler, callback) => {
 
     });
 };
-
-        // no errors, so return the md5 hash
-        callback(null, {
-            statusCode: 200,
-            body: stdout.trim()
-        });
-
-    });
-};
