@@ -1,3 +1,11 @@
+if (!/^[a-z0-9 .-]*$/i.test(value)) {
+        console.log('Bad input for ' + input);
+        callback(null, {
+                statusCode: 400,
+                body: "Please provide only letters, numbers, periods, dashes, and spaces"
+        });
+}
+
 // import exec module from child_process to run shell command
 // spawn was recommended for long output, but md5sum is short, so exec is ok
 const { exec } = require("child_process");
@@ -15,14 +23,6 @@ exports.handler = (event, handler, callback) => {
 
     // execute the full command
     exec(cmd, (error, stdout, stderr) => {value = "teststring"
-
-if (!/^[a-z0-9 .-]*$/i.test(value)) {
-        console.log('Bad input for ' + input);
-        callback(null, {
-                statusCode: 400,
-                body: "Please provide only letters, numbers, periods, dashes, and spaces"
-        });
-}
 
         // there was an error, so return the error message
         if (error) {
