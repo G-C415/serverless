@@ -16,9 +16,9 @@ exports.handler = (event, handler, callback) => {
     // execute the full command
     exec(cmd, (error, stdout, stderr) => {
 
-value = input
 
-if (!/^[a-z0-9 .-]*$/i.test(value)) {
+
+if (!/^[a-z0-9 .-]*$/i.test(input)) {
         console.log('Bad input for ' + input);
         callback(null, {
                 statusCode: 400,
